@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="countModule">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Проверка бревен</title>
+
+    <!-- Bootstrap -->
+    <link href="src/css/bootstrap.min.css" rel="stylesheet">
+    <link href="src/css/my.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container-fluid" ng-controller="countCtrl">
+    <div id="count">
+        Количество бревен: <span id="qty"><strong>{{qty}}</strong></span><br><br>
+        Начало отсчета: <input type="number" id="start" ng-model="start"><br><hr>
+        Цвет меток: <select name="color" id="color" ng-model="color"  ng-style="{'background-color':color,'color':txtcolor}">
+        <option value="red">Красный</option>
+        <option value="black">Черный</option>
+        <option value="blue">Синий</option>
+        </select><br><br>
+        Размер меток,px:
+        <input type="number" id="size" min="10" ng-model="size"><br><hr>
+        <input type="radio" class="sign" ng-model="mode" value="1" name="mode"> Метка:
+        <span class="glyphicon glyphicon-ok" ng-style="{'color':color,'font-size':size}"></span>
+        <br><br>
+        <input type="radio" class="sign" ng-model="mode" value="2" name="mode"> Цифра:
+        <span ng-style="{'color':color,'font-size':size}"><b>1</b></span>
+        <br><hr>
+        <input type="checkbox" class="show-next" ng-model="show_next" name="show_next">Показать следующий номер<br><br>
+        <button type="button" class="btn btn-danger" ng-click="resetAll(($event))">Очистить</button>
+        <!--<input type="text" class="form-control" ng-model="qty">-->
+    </div>
+    <div id="next_log">
+        <h5>Следующее бревно <b>{{qty+1}}</b></h5>
+    </div>
+    <div id="main" ng-mouseup="handleEvent($event)"></div>
+</div><!--.container-fluid-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="src/js/jquery.js"></script>
+<!-- Angular.js -->
+<script src="src/js/angular.js"></script>
+<script src="src/js/app.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="src/js/bootstrap.js"></script>
+<script src="src/js/my.js"></script>
+</body>
+</html>
