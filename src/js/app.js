@@ -81,9 +81,9 @@ angular.module("countModule", [])
             $scope.size = 15;
             $scope.mode = 1;
             temp = $scope.start;
-
-            $(".new").remove();
+            $scope.show_next = false;
             $('#next_log').css('display','none');
+            $(".new").remove();
         }
 
     });
