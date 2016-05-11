@@ -9,7 +9,30 @@ angular.module("countModule", [])
         $scope.mode = 1;//метка
         $scope.show_next = false;//показать следующий номер
         var temp = 0;
+//***********************************************************************
+        //выбор фото
+        $scope.selectFile = function()
+        {
+            $("#file").click();
+        };
+        $scope.fileNameChanged = function()
+        {
+            //имя файла в input(фейковое)
+            var file_name = $('#file').val();
+            //вырезаем имя файла
+            var arr = file_name.split(/[\\]/);
+            ////Убедимся в правильном разбиении...
+            //for (var i=0,len=arr.length;i<len;i++) {
+            //    alert(arr[i]);
+            //}
+            //alert(arr[2]);
+            //путь к фото(должно быть в папке с прогой)
+            var path = 'url("' + arr[2] + '")';
+            $('#main').css('background-image', path);
+            $(".new").remove();
 
+        };
+//***********************************************************************
 
         //показать/скрыть следующий номер
         $('.show-next').change(function() {
@@ -31,11 +54,13 @@ angular.module("countModule", [])
         //        $('#next_log').css('display','block');
         //    }
         //});
+//***********************************************************************
 
         //изменение начала отсчета
         $('#start').change(function(){
             temp = $scope.start;
         });
+//***********************************************************************
 
         //размер метки
         $('#size').change(function(){
@@ -44,9 +69,10 @@ angular.module("countModule", [])
                 'width':$scope.size
             });
         });
+//***********************************************************************
 
-        $scope.qty = $scope.start;
         //метки на поле
+        $scope.qty = $scope.start;
         $scope.handleEvent = function (e) {
             //$scope.qty++;
             temp++;
@@ -71,6 +97,15 @@ angular.module("countModule", [])
             });
 
         };
+//***********************************************************************
+        //убрать последнюю метку
+        $scope.removeLast = function()
+        {
+            $(".new:last").remove();
+            if(temp != 0)temp--;
+            $scope.qty = temp;
+        }
+//***********************************************************************
 
         //очистка поля
         $scope.resetAll = function (e) {

@@ -3,6 +3,9 @@ body {
   height: 100%;
   width: 100%;
 }
+.btn {
+  width: 100%;
+}
 .container-fluid {
   background-color: #40C1FC;
   height: 100%;
@@ -45,6 +48,22 @@ body {
 }
 #next_log h5 {
   margin: 0;
+}
+.owner {
+  background-color: blue;
+  border: 2px solid red;
+  padding: 0 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.owner a {
+  color: white;
+  text-decoration: none;
+}
+.owner:hover {
+  background-color: red;
+  box-shadow: -5px -5px 5px #000;
 }
 #size {
   text-align: center;
