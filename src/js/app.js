@@ -9,6 +9,8 @@ angular.module("countModule", [])
         $scope.mode = 1;//метка
         $scope.show_next = false;//показать следующий номер
         var temp = 0;
+        //$scope.current_file = 'Не выбран';
+
 //***********************************************************************
         //выбор фото
         $scope.selectFile = function()
@@ -26,12 +28,15 @@ angular.module("countModule", [])
             //    alert(arr[i]);
             //}
             //alert(arr[2]);
+            //$scope.current_file = String(arr[2]);
+            $('#current_file').text(arr[2]);
             //путь к фото(должно быть в папке с прогой)
-            var path = 'url("' + arr[2] + '")';
+            var path = 'url("photo/' + arr[2] + '")';
             $('#main').css('background-image', path);
             $(".new").remove();
-
         };
+
+
 //***********************************************************************
 
         //показать/скрыть следующий номер
@@ -54,6 +59,7 @@ angular.module("countModule", [])
         //        $('#next_log').css('display','block');
         //    }
         //});
+
 //***********************************************************************
 
         //изменение начала отсчета
@@ -97,7 +103,9 @@ angular.module("countModule", [])
             });
 
         };
+
 //***********************************************************************
+
         //убрать последнюю метку
         $scope.removeLast = function()
         {
@@ -116,8 +124,8 @@ angular.module("countModule", [])
             $scope.size = 15;
             $scope.mode = 1;
             temp = $scope.start;
-            $scope.show_next = false;
-            $('#next_log').css('display','none');
+            //$scope.show_next = false;
+            //$('#next_log').css('display','none');
             $(".new").remove();
         }
 
