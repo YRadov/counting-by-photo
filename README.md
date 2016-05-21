@@ -1,1 +1,1 @@
-# counting-by-photo
+# Counting the loaded logs on a photo
