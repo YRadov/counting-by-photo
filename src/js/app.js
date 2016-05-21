@@ -9,7 +9,7 @@ angular.module("countModule", [])
         $scope.mode = 1;//метка
         $scope.show_next = false;//показать следующий номер
         var temp = 0;
-        //$scope.current_file = 'Не выбран';
+        $scope.next_log = $scope.qty +1;
 
 //***********************************************************************
         //выбор фото
@@ -65,6 +65,7 @@ angular.module("countModule", [])
         //изменение начала отсчета
         $('#start').change(function(){
             temp = $scope.start;
+                $scope.next_log = temp +2;
         });
 //***********************************************************************
 
@@ -101,7 +102,7 @@ angular.module("countModule", [])
                 'top':Y,
                 'left':X
             });
-
+            $scope.next_log = $scope.qty +1;
         };
 
 //***********************************************************************
@@ -112,6 +113,7 @@ angular.module("countModule", [])
             $(".new:last").remove();
             if(temp != 0)temp--;
             $scope.qty = temp;
+            $scope.next_log = $scope.qty +1;
         }
 //***********************************************************************
 
@@ -123,6 +125,7 @@ angular.module("countModule", [])
             $scope.txtcolor = 'white';
             $scope.size = 15;
             $scope.mode = 1;
+            $scope.next_log = 1;
             temp = $scope.start;
             //$scope.show_next = false;
             //$('#next_log').css('display','none');
